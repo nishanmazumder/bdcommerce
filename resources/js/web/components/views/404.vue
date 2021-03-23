@@ -3,7 +3,7 @@
     <div class="pages error-page section-padding">
         <div class="container text-center">
             <div class="error-content">
-                <img src="{{resource_path()}}asset/web/img/error.png" alt="" />
+                <img v-bind:src="'../storage/img/error.png'" alt="" />
                 <h4>Ooops.... Error 404</h4>
                 <p>Sorry, But the page you are looking for does't exist</p>
                 <form action="#" method="get">

@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-sm-2">
                     <div class="logo">
-                        <a href="index.html"><img src="img/logo.png" alt="Sellshop" /></a>
+                        <a href="index.html"><img v-bind:src="'../storage/img/logo.png'" alt="Sellshop" /></a>
                     </div>
                 </div>
                 <div class="col-sm-8">
@@ -29,16 +29,16 @@
                                 <ul class="clearfix">
                                     <li><a href="#"><i class="mdi mdi-account"></i></a>
                                         <ul>
-                                            <li><a href="login.html">Login</a></li>
-                                            <li><a href="login.html">Registar</a></li>
-                                            <li><a href="my-account.html">My account</a></li>
+                                            <li><router-link to="/login">Login</router-link></li>
+                                            <li><router-link to="/register">Registar</router-link></li>
+                                            <li><router-link to="/account">My account</router-link></li>
                                         </ul>
                                     </li>
                                     <li><a href="#"><i class="mdi mdi-settings"></i></a>
                                         <ul>
-                                            <li><a href="my-account.html">My account</a></li>
+                                            <li><router-link to="/account">My account</router-link></li>
                                             <li><a href="cart.html">My cart</a></li>
-                                            <li><a href="wishlist.html">My wishlist</a></li>
+                                            <li><router-link to="/wishlist">My wishlist</router-link></li>
                                             <li><a href="checkout.html">Check out</a></li>
                                         </ul>
                                     </li>
@@ -48,11 +48,8 @@
                         <div class="mainmenu">
                             <nav>
                                 <ul>
-                                    <li><a href="index.html">Home</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">Home version one</a></li>
-                                            <li><a href="index-2.html">Home version two</a></li>
-                                        </ul>
+                                    <li>
+                                        <router-link to="/">Home</router-link>
                                     </li>
                                     <li><a href="shop.html">Shop</a>
                                         <ul class="magamenu">
@@ -99,12 +96,8 @@
                                             <li><a href="error-404.html">404 page</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="blog.html">Blog</a>
-                                        <ul class="dropdown">
-                                            <li><a href="blog-style-1.html">Blog Style One</a></li>
-                                            <li><a href="blog-style-2.html">Blog Style Two</a></li>
-                                            <li><a href="single-blog.html">Single Blog</a></li>
-                                        </ul>
+                                    <li>
+                                        <router-link to="/blog">Blog</router-link>
                                     </li>
                                     <li><a href="about.html">About</a></li>
                                     <li><a href="contact.html">Contact</a></li>

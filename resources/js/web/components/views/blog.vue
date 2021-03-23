@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="pages-title-text text-center">
-                            <h2>{{name}}</h2>
+                            <h2>{{$route.name}}</h2>
                             <ul class="text-left">
                                 <li><a href="index.html">Home </a></li>
                                 <li><span> // </span><a href="blog.html">Blog </a></li>
@@ -325,8 +325,11 @@
 
 <script>
 export default {
-    data: {
-        name: "Blog"
-    }
+    name: ''
+    // data: function(){
+    //     return{
+    //         name: "Blog"
+    //     }
+    // }
 }
 </script>

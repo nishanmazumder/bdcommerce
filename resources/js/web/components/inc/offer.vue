@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="single-colect banner collect-one">
-                        <a href="#"><img src="img/collect/1.jpg" alt="" /></a>
+                        <a href="#"><img v-bind:src="'../storage/img/collect/1.jpg'" alt="" /></a>
                     </div>
                 </div>
                 <div class="col-sm-4">
@@ -15,12 +15,12 @@
                         <a href="#">Shop Now <i class="mdi mdi-arrow-right"></i></a>
                     </div>
                     <div class="collect-img banner margin single-colect">
-                        <a href="#"><img src="img/collect/2.jpg" alt="" /></a>
+                        <a href="#"><img v-bind:src="'../storage/img/collect/2.jpg'" alt="" /></a>
                     </div>
                 </div>
                 <div class="col-sm-4">
                     <div class="collect-img banner single-colect">
-                        <a href="#"><img src="img/collect/3.jpg" alt="" /></a>
+                        <a href="#"><img v-bind:src="'../storage/img/collect/3.jpg'" alt="" /></a>
                         <h2>New Collection</h2>
                     </div>
                     <div class="colect-text ">

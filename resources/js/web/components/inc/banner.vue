@@ -1,11 +1,11 @@
 <template>
     <!-- slider-section-start -->
-    <div class="main-slider-one slider-area">
+    <!-- <div class="main-slider-one slider-area">
         <div id="wrapper">
             <div class="slider-wrapper">
                 <div id="mainSlider" class="nivoSlider">
-                    <img src="img/slider/home1/1.jpg" alt="main slider" title="#htmlcaption" />
-                    <img src="img/slider/home1/2.jpg" alt="main slider" title="#htmlcaption2" />
+                    <img v-bind:src="'../storage/img/slider/home1/1.jpg'" alt="main slider" title="#htmlcaption" />
+                    <img v-bind:src="'../storage/img/slider/home1/2.jpg'" alt="main slider" title="#htmlcaption2" />
                 </div>
                 <div id="htmlcaption" class="nivo-html-caption slider-caption">
                     <div class="container">
@@ -45,17 +45,41 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- slider section end -->
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img v-bind:src="'../storage/img/slider/home1/1.jpg'" alt="main slider" />
+                <div class="carousel-caption">
+                    Test
+                </div>
+            </div>
+            <div class="item">
+                <img v-bind:src="'../storage/img/slider/home1/2.jpg'" alt="main slider" />
+                <div class="carousel-caption">
+                   Test2
+                </div>
+            </div>
+            ...
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 </template>
-
-<script>
-    export default {
-
-    }
-
-</script>
-
-<style>
-
-</style>
