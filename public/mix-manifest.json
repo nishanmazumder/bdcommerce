@@ -1,7 +1,11 @@
 {
     "/js/admin.js": "/js/admin.js",
+    "/js/web.js": "/js/web.js",
     "/css/app.css": "/css/app.css",
     "/js/scripts-admin.js": "/js/scripts-admin.js",
     "/js/bootstrap.bundle.min.js.map": "/js/bootstrap.bundle.min.js.map",
-    "/js/iview.js.map": "/js/iview.js.map"
+    "/js/iview.js.map": "/js/iview.js.map",
+    "/css/web.css": "/css/web.css",
+    "/js/modernizr.js": "/js/modernizr.js",
+    "/js/scripts-web.js": "/js/scripts-web.js"
 }

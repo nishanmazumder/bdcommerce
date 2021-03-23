@@ -8,7 +8,7 @@ Vue.use(VueRouter);
 import dashboard from './components/views/dashboard';
 import hooks from './components/basic/hooks';
 import methods from './components/basic/methods';
-import vuex from './components/views/vuex';
+import vuex from './components/basic/vuex';
 
 //pages
 import category from './components/views/category';
@@ -16,7 +16,7 @@ import category from './components/views/category';
 //const test = { template: '<div>foo</div>' }
 
 const routes = [{
-        path: '/',
+        path: '/dashboard',
         name: 'dashboard',
         component: dashboard
     },
