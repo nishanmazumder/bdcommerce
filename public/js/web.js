@@ -23387,113 +23387,111 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("footer", [
-      _vm._m(0),
-      _vm._v(" "),
-      _vm._m(1),
-      _vm._v(" "),
-      _c("div", { staticClass: "footer-top section-padding" }, [
-        _c("div", { staticClass: "footer-dsc" }, [
-          _c("div", { staticClass: "container" }, [
-            _c("div", { staticClass: "row" }, [
-              _vm._m(2),
-              _vm._v(" "),
-              _vm._m(3),
-              _vm._v(" "),
-              _vm._m(4),
-              _vm._v(" "),
-              _vm._m(5),
-              _vm._v(" "),
-              _c(
-                "div",
-                {
-                  staticClass:
-                    "col-xs-12 col-sm-6 col-md-3 r-margin-top wide-mobile"
-                },
-                [
-                  _c("div", { staticClass: "single-text" }, [
-                    _vm._m(6),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "clearfix instagram" }, [
-                      _c("ul", [
-                        _c("li", [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _c("img", {
-                              attrs: {
-                                src: "../storage/img/footer/in1.png",
-                                alt: "Instagram"
-                              }
-                            })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _c("img", {
-                              attrs: {
-                                src: "../storage/img/footer/in2.png",
-                                alt: "Instagram"
-                              }
-                            })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _c("img", {
-                              attrs: {
-                                src: "../storage/img/footer/in3.png",
-                                alt: "Instagram"
-                              }
-                            })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _c("img", {
-                              attrs: {
-                                src: "../storage/img/footer/in4.png",
-                                alt: "Instagram"
-                              }
-                            })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _c("img", {
-                              attrs: {
-                                src: "../storage/img/footer/in5.png",
-                                alt: "Instagram"
-                              }
-                            })
-                          ])
-                        ]),
-                        _vm._v(" "),
-                        _c("li", [
-                          _c("a", { attrs: { href: "#" } }, [
-                            _c("img", {
-                              attrs: {
-                                src: "../storage/img/footer/in6.png",
-                                alt: "Instagram"
-                              }
-                            })
-                          ])
+  return _c("footer", [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", { staticClass: "footer-top section-padding" }, [
+      _c("div", { staticClass: "footer-dsc" }, [
+        _c("div", { staticClass: "container" }, [
+          _c("div", { staticClass: "row" }, [
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3),
+            _vm._v(" "),
+            _vm._m(4),
+            _vm._v(" "),
+            _vm._m(5),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "col-xs-12 col-sm-6 col-md-3 r-margin-top wide-mobile"
+              },
+              [
+                _c("div", { staticClass: "single-text" }, [
+                  _vm._m(6),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "clearfix instagram" }, [
+                    _c("ul", [
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("img", {
+                            attrs: {
+                              src: "../storage/img/footer/in1.png",
+                              alt: "Instagram"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("img", {
+                            attrs: {
+                              src: "../storage/img/footer/in2.png",
+                              alt: "Instagram"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("img", {
+                            attrs: {
+                              src: "../storage/img/footer/in3.png",
+                              alt: "Instagram"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("img", {
+                            attrs: {
+                              src: "../storage/img/footer/in4.png",
+                              alt: "Instagram"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("img", {
+                            attrs: {
+                              src: "../storage/img/footer/in5.png",
+                              alt: "Instagram"
+                            }
+                          })
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("li", [
+                        _c("a", { attrs: { href: "#" } }, [
+                          _c("img", {
+                            attrs: {
+                              src: "../storage/img/footer/in6.png",
+                              alt: "Instagram"
+                            }
+                          })
                         ])
                       ])
                     ])
                   ])
-                ]
-              )
-            ])
+                ])
+              ]
+            )
           ])
         ])
-      ]),
-      _vm._v(" "),
-      _vm._m(7)
-    ])
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(7)
   ])
 }
 var staticRenderFns = [
@@ -23657,7 +23655,7 @@ var staticRenderFns = [
                 _c("a", { attrs: { href: "wishlist.html" } }, [
                   _c("i", { staticClass: "mdi mdi-menu-right" }),
                   _vm._v(
-                    "My\n                                                Wishlist"
+                    "My\n                                            Wishlist"
                   )
                 ])
               ]),
@@ -23714,7 +23712,7 @@ var staticRenderFns = [
                 _c("a", { attrs: { href: "contact.html" } }, [
                   _c("i", { staticClass: "mdi mdi-menu-right" }),
                   _vm._v(
-                    "New\n                                                Products"
+                    "New\n                                            Products"
                   )
                 ])
               ]),
@@ -23778,7 +23776,7 @@ var staticRenderFns = [
                 _c("a", { attrs: { href: "contact.html" } }, [
                   _c("i", { staticClass: "mdi mdi-menu-right" }),
                   _vm._v(
-                    "Return\n                                                Exchange"
+                    "Return\n                                            Exchange"
                   )
                 ])
               ]),
