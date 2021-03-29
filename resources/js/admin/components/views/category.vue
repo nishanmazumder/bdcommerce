@@ -218,12 +218,10 @@
             },
 
             showCategoryModal(category){
-
                 let obj = {
                     id : category.id,
                     category_name : category.category_name
                 }
-
                 this.editData = obj
                 this.editModal = true
             },
