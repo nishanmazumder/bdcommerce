@@ -3,10 +3,10 @@
 		<section class="pages login-page section-padding">
 			<div class="container">
 				<div class="row ">
-					<div class="col-sm-6">
+					<div class="col-sm-12">
 						<div class="main-input padding60">
 							<div class="log-title">
-								<h3><strong>registered customers</strong></h3>
+								<h3><strong>{{$route.name}}</strong></h3>
 							</div>
 							<div class="login-text">
 								<div class="custom-input">
@@ -28,4 +28,23 @@
 		</section>
 		<!-- login content section end -->
 </template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style scoped>
+.main-input{
+    width: 600px;
+    margin: auto;
+    background: #ddd;
+}
+@media screen and (max-width: 490px) {
+.main-input{
+    width: 100%;
+}
+}
+</style>
 

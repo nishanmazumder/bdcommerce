@@ -19,6 +19,20 @@ class CategoryController extends Controller
         //return Category::all();
     }
 
+    public function validation($request)
+    {
+        $rules = [
+            'category_name' => 'required' //min:10
+        ];
+
+        $errorText = [
+            'required' => "This field is required!",
+            'min' => "Minimum 10 word!"
+        ];
+
+        $this->validate($request, $rules, $errorText);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -26,7 +40,6 @@ class CategoryController extends Controller
      */
     public function create()
     {
-
     }
 
     /**
@@ -40,6 +53,12 @@ class CategoryController extends Controller
         // return response()->json([
         //     'msg' => 'Error'
         // ], 422);
+
+        // $request->validate([
+        //     'category_name' => 'required|min:10'
+        // ]);
+
+        $this->validation($request);
 
         return Category::create([
             'category_name' => $request->category_name
@@ -65,7 +84,6 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
     }
 
     /**
@@ -75,9 +93,14 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request)
     {
-        //
+
+      $this->validation($request);
+
+       return Category::where('id', $request->id)->update([
+        'category_name' => $request->category_name
+       ]);
     }
 
     /**
@@ -86,16 +109,16 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy($cat)
-    {
-        $category = Category::find($cat);
 
-        if($category){
+    public function destroy(Category $category, $id)
+    {
+        $category = Category::find($id);
+
+        if ($category) {
             $category->delete();
-            return "Category Delated";
+            return response()->json(["Category Delated"]);
         }
 
-        return "Category not found";
-
+        return response()->json(["Category not found"]);
     }
 }

@@ -43,8 +43,9 @@
                                 <td>Des</td>
                                 <td>Img</td>
                                 <td>
-                                    <Button type="info" size="small">Edit</Button>
-                                    <Button type="error" size="small" @click="deleteCategory(category.id)">Delete</Button>
+                                    <Button type="info" size="small" @click="showCategoryModal(category)">Edit</Button>
+                                    <Button type="error" size="small"
+                                        @click="deleteCategory(category.id)">Delete</Button>
                                 </td>
                             </tr>
                         </tbody>
@@ -67,6 +68,20 @@
             </div>
         </Modal>
 
+        <!-- Category Edit-->
+        <Modal v-model="editModal" title="Edit Category" :mask-closable="false" :closable="false"
+            class-name="vertical-center-modal">
+
+            <Input v-model="editData.category_name" placeholder="Edit Category" style="width: 100%" />
+
+
+            <div slot="footer">
+                <Button type="default" @click="editModal=false">Close</Button>
+                <Button type="primary" @click="editCategory" :disabled="isAdding"
+                    :loading="isAdding">{{isAdding? "Editing.." : "Update"}}</Button>
+            </div>
+        </Modal>
+
     </div>
 </template>
 
@@ -81,23 +96,26 @@
 <script>
     export default {
 
-        data: function() {
+        data: function () {
             return {
                 data: {
                     category_name: ''
                 },
                 addModal: false,
+                editModal: false,
+                editData: {
+                    category_name: ''
+                },
                 isAdding: false,
                 categoriess: [],
-                testItem: [
-                    {
+                testItem: [{
                         id: 1,
-                        name : "Nishan",
+                        name: "Nishan",
                         age: 28
                     },
                     {
                         id: 2,
-                        name : "A",
+                        name: "A",
                         age: 30
                     }
                 ]
@@ -119,63 +137,125 @@
             //     }
             // },
 
-            addCategory() {
-                if (this.data.category_name.trim() == '') return this.error('Category name require')
+            async addCategory() {
+                //if (this.data.category_name.trim() == '') return this.error('Category name require')
 
-                axios.post('/api/cat', this.data)
+                // axios.post('/api/cat', this.data)
 
-                .then(Response=>{
-                    if(Response.status === 201){
-                        //console.log(Response)
-                        this.success("Category Added")
-                        this.addModal = false
-                        this.getCategory()
-                    }
-                })
+                //     .then(Response => {
+                //         if (Response.status === 201) {
+                //             //console.log(Response)
+                //             //this.categoriess.unshift(this.data)
+                //             this.success("Category Added")
+                //             this.addModal = false
+                //             this.getCategory()
+                //             this.data.category_name = ''
+                //         }
+                //     })
 
-                .catch(error=>{
-                    console.log(error)
-                })
+                //     .catch(error => {
+                //         console.log(error)
+                //     })
+
+
+                const res = await this.callApi('post', '/api/cat', this.data)
+
+                if (res.status === 201) {
+                    //console.log(Response)
+                    //this.categoriess.unshift(this.data)
+                    this.success("Category Added")
+                    this.addModal = false
+                    this.getCategory()
+                    this.data.category_name = ''
+                } else if (res.status === 422) {
+                    this.error(res.data.errors.category_name[0])
+                }
             },
 
-            getCategory(){
-                axios.get('/api/cat')
+            // getCategory(){
+            //     axios.get('/api/cat')
 
-                .then(Response=>{
-                    if(Response.status === 200){
-                        this.categoriess = Response.data
-                        //console.log(Response.data)
-                    }
-                })
+            //     .then(Response=>{
+            //         if(Response.status === 200){
+            //             this.categoriess = Response.data
+            //             //console.log(Response.data)
+            //         }
+            //     })
 
-                .catch(error=>{
-                    console.log(error)
-                })
+            //     .catch(error=>{
+            //         console.log(error)
+            //     })
+            // },
+
+            async getCategory() {
+                const res = await this.callApi('get', '/api/cat')
+
+                if (res.status == 200) {
+                    this.categoriess = res.data
+                } else {
+                    this.error('No data founds!')
+                }
             },
 
-            deleteCategory($cat){
-                axios.delete('/api/cat/'+$cat)
+            async editCategory(){
 
-                .then(Response=>{
-                    if(Response.status === 200){
-                        this.warning("Category Deleted")
-                        this.getCategory()
-                    }
-                })
+                //console.log(this.editData)
+                // const res = await this.callApi('post', '/api/cat/'+ this.editData.id, {
+                //     data: this.editData,
+                //     _method: 'patch'
+                // })
 
-                .catch(error=>{
-                    console.log(error)
-                })
+                const res = await this.callApi('patch', '/api/cat/edit/', this.editData)
+
+                if (res.status === 200) {
+                    //console.log(res.data)
+                    this.success("Category Edited")
+                    this.editModal = false
+                    this.getCategory()
+                } else if (res.status === 422) {
+                    this.error(res.data.errors.category_name[0])
+                }
+            },
+
+            showCategoryModal(category){
+
+                let obj = {
+                    id : category.id,
+                    category_name : category.category_name
+                }
+
+                this.editData = obj
+                this.editModal = true
+            },
+
+            async deleteCategory($cat) {
+                // axios.delete('/api/cat/' + $cat)
+
+                //     .then(Response => {
+                //         if (Response.status === 200) {
+                //             this.warning("Category Deleted")
+                //             this.getCategory()
+                //         }
+                //     })
+
+                //     .catch(error => {
+                //         console.log(error)
+                //     })
+
+                const res = await this.callApi('delete', '/api/cat/' + $cat)
+
+                if(res.status === 200){
+                    this.warning(res.data)
+                    this.getCategory()
+                }else if (res.status === 422) {
+                    this.error(res.data.errors.category_name[0])
+                }
             }
-
-
-
         },
 
-        mounted: function(){
+        mounted: function () {
             this.getCategory()
         }
-
         // async created() {
         //     const res = await this.callApi('get', '/cat')
 

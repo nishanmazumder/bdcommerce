@@ -3,7 +3,7 @@
 		<section class="pages login-page section-padding">
 			<div class="container">
 				<div class="row">
-					<div class="col-sm-6">
+					<div class="col-sm-12">
 						<div class="main-input padding60 new-customer">
 							<div class="log-title">
 								<h3><strong>new customers</strong></h3>
@@ -32,3 +32,15 @@
 		<!-- login content section end -->
 </template>
 
+<style scoped>
+.main-input{
+    width: 600px;
+    margin: auto;
+    background: #ddd;
+}
+@media screen and (max-width: 490px) {
+.main-input{
+    width: 100%;
+}
+}
+</style>

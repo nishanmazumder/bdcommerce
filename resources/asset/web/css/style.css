@@ -8,10 +8,10 @@
     Version: 1.0
 
 -----------------------------------------------------------------------------------
-    
+
     CSS INDEX
     ===================
-	
+
     [ 1. theme default CSS ] (body, link color, section etc)
 	[ 2. home version one ]
 	[ 3. home version two ]
@@ -30,7 +30,7 @@
 		[ 6.10 single products page ]
 	[ 7. Contact page ]
 	[ 8. 404 page ]
-	
+
 -----------------------------------------------------------------------------------*/
 
 /*-------------------------------------
@@ -917,7 +917,7 @@ footer ,.latest-blog,.single-products,.service-text,.coming-product.coming-produ
 }
 /* social media */
 .social-media {
-    background: rgba(0, 0, 0, 0) url("img/footer/bg2.jpg") no-repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) url("../storage/img/footer/bg2.jpg") no-repeat scroll 0 0;
     padding-top: 110px;
 }
 .social-icons {

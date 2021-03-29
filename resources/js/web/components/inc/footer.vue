@@ -7,11 +7,11 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <div class="barnd-bg">
-                            <a href="#"><img src="img/brand/1.png" alt="Brand Logo" /></a>
-                            <a href="#"><img src="img/brand/2.png" alt="Brand Logo" /></a>
-                            <a href="#"><img src="img/brand/3.png" alt="Brand Logo" /></a>
-                            <a href="#"><img src="img/brand/4.png" alt="Brand Logo" /></a>
-                            <a href="#"><img src="img/brand/5.png" alt="Brand Logo" /></a>
+                            <a href="#"><img v-bind:src="'../storage/img/brand/1.png'" alt="Brand Logo" /></a>
+                            <a href="#"><img v-bind:src="'../storage/img/brand/2.png'" alt="Brand Logo" /></a>
+                            <a href="#"><img v-bind:src="'../storage/img/brand/3.png'" alt="Brand Logo" /></a>
+                            <a href="#"><img v-bind:src="'../storage/img/brand/4.png'" alt="Brand Logo" /></a>
+                            <a href="#"><img v-bind:src="'../storage/img/brand/5.png'" alt="Brand Logo" /></a>
                         </div>
                     </div>
                 </div>
@@ -175,3 +175,10 @@
     </footer>
     <!-- footer section end -->
 </template>
+
+<style scoped>
+/* .social-media {
+    background: rgba(0, 0, 0, 0) url("../storage/img/footer/bg2.jpg") no-repeat scroll 0 0;
+    padding-top: 110px;
+} */
+</style>

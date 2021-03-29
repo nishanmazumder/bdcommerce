@@ -6,22 +6,18 @@ export default {
     },
 
     methods: {
-
-
-
-        //Axios
-        // async callApi(method, url, dataObj) {
-        //     try {
-        //         return await axios({
-        //             method: method,
-        //             url: url,
-        //             data: dataObj
-        //         })
-        //     } catch (e) {
-        //         console.log(e)
-        //         return e.response
-        //     }
-        // },
+        async callApi(method, url, dataObj) {
+            try {
+                return await axios({
+                    method: method,
+                    url: url,
+                    data: dataObj
+                })
+            } catch (e) {
+                console.log(e)
+                return e.response
+            }
+        },
 
         // xhr(method, url, dataObj, callBack) {
 

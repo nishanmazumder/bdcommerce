@@ -34,6 +34,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //Blog
 Route::resource('blog', BlogController::class)->except(['show']);
 Route::resource('cat', CategoryController::class)->except(['show']);
+Route::post('cat/edit', [CategoryController::class, 'update']);
 Route::resource('tag', TagController::class)->except(['show']);
 
 //Route::get('redirect', [TestController::class, 'test']);
