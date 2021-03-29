@@ -2217,34 +2217,15 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         category_name: ''
       },
       addModal: false,
+      isAdding: false,
+      categoriess: [],
       editModal: false,
       editData: {
         category_name: ''
-      },
-      isAdding: false,
-      categoriess: [],
-      testItem: [{
-        id: 1,
-        name: "Nishan",
-        age: 28
-      }, {
-        id: 2,
-        name: "A",
-        age: 30
-      }]
+      }
     };
   },
   methods: {
-    // async addCategory() {
-    //     if (this.data.category_name.trim() == '') return this.error('Category name require')
-    //     const res = await this.callApi('post', '/cat', this.data)
-    //     if (res.status === 201) {
-    //         this.success("Category Added")
-    //         this.addModal = false
-    //     } else {
-    //         this.error()
-    //     }
-    // },
     addCategory: function addCategory() {
       var _this = this;
 
@@ -2261,8 +2242,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 res = _context.sent;
 
                 if (res.status === 201) {
-                  //console.log(Response)
-                  //this.categoriess.unshift(this.data)
                   _this.success("Category Added");
 
                   _this.addModal = false;
@@ -2282,18 +2261,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    // getCategory(){
-    //     axios.get('/api/cat')
-    //     .then(Response=>{
-    //         if(Response.status === 200){
-    //             this.categoriess = Response.data
-    //             //console.log(Response.data)
-    //         }
-    //     })
-    //     .catch(error=>{
-    //         console.log(error)
-    //     })
-    // },
     getCategory: function getCategory() {
       var _this2 = this;
 
@@ -2339,7 +2306,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                 res = _context3.sent;
 
                 if (res.status === 200) {
-                  //console.log(res.data)
                   _this3.success("Category Edited");
 
                   _this3.editModal = false;
@@ -2399,16 +2365,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   mounted: function mounted() {
     this.getCategory();
-  } // async created() {
-  //     const res = await this.callApi('get', '/cat')
-  //     if (res.status == 200) {
-  //         this.categoriess = res.data
-  //         console.log(res.data)
-  //     } else {
-  //         this.error()
-  //     }
-  // }
-
+  }
 });
 
 /***/ }),

@@ -102,20 +102,67 @@
                     category_name: ''
                 },
                 addModal: false,
-                isAdding: false,
-                categoriess: [],
                 editModal: false,
                 editData: {
                     category_name: ''
-                }
+                },
+                isAdding: false,
+                categoriess: [],
+                testItem: [{
+                        id: 1,
+                        name: "Nishan",
+                        age: 28
+                    },
+                    {
+                        id: 2,
+                        name: "A",
+                        age: 30
+                    }
+                ]
             }
         },
 
         methods: {
+            // async addCategory() {
+            //     if (this.data.category_name.trim() == '') return this.error('Category name require')
+
+            //     const res = await this.callApi('post', '/cat', this.data)
+
+            //     if (res.status === 201) {
+            //         this.success("Category Added")
+            //         this.addModal = false
+
+            //     } else {
+            //         this.error()
+            //     }
+            // },
+
             async addCategory() {
+                //if (this.data.category_name.trim() == '') return this.error('Category name require')
+
+                // axios.post('/api/cat', this.data)
+
+                //     .then(Response => {
+                //         if (Response.status === 201) {
+                //             //console.log(Response)
+                //             //this.categoriess.unshift(this.data)
+                //             this.success("Category Added")
+                //             this.addModal = false
+                //             this.getCategory()
+                //             this.data.category_name = ''
+                //         }
+                //     })
+
+                //     .catch(error => {
+                //         console.log(error)
+                //     })
+
+
                 const res = await this.callApi('post', '/api/cat', this.data)
 
                 if (res.status === 201) {
+                    //console.log(Response)
+                    //this.categoriess.unshift(this.data)
                     this.success("Category Added")
                     this.addModal = false
                     this.getCategory()
@@ -124,6 +171,21 @@
                     this.error(res.data.errors.category_name[0])
                 }
             },
+
+            // getCategory(){
+            //     axios.get('/api/cat')
+
+            //     .then(Response=>{
+            //         if(Response.status === 200){
+            //             this.categoriess = Response.data
+            //             //console.log(Response.data)
+            //         }
+            //     })
+
+            //     .catch(error=>{
+            //         console.log(error)
+            //     })
+            // },
 
             async getCategory() {
                 const res = await this.callApi('get', '/api/cat')
@@ -136,9 +198,17 @@
             },
 
             async editCategory(){
+
+                //console.log(this.editData)
+                // const res = await this.callApi('post', '/api/cat/'+ this.editData.id, {
+                //     data: this.editData,
+                //     _method: 'patch'
+                // })
+
                 const res = await this.callApi('patch', '/api/cat/edit/', this.editData)
 
                 if (res.status === 200) {
+                    //console.log(res.data)
                     this.success("Category Edited")
                     this.editModal = false
                     this.getCategory()
@@ -152,12 +222,24 @@
                     id : category.id,
                     category_name : category.category_name
                 }
-
                 this.editData = obj
                 this.editModal = true
             },
 
             async deleteCategory($cat) {
+                // axios.delete('/api/cat/' + $cat)
+
+                //     .then(Response => {
+                //         if (Response.status === 200) {
+                //             this.warning("Category Deleted")
+                //             this.getCategory()
+                //         }
+                //     })
+
+                //     .catch(error => {
+                //         console.log(error)
+                //     })
+
                 const res = await this.callApi('delete', '/api/cat/' + $cat)
 
                 if(res.status === 200){
@@ -172,6 +254,16 @@
         mounted: function () {
             this.getCategory()
         }
+        // async created() {
+        //     const res = await this.callApi('get', '/cat')
+
+        //     if (res.status == 200) {
+        //         this.categoriess = res.data
+        //         console.log(res.data)
+        //     } else {
+        //         this.error()
+        //     }
+        // }
     }
 
 </script>
