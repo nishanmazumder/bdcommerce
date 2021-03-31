@@ -112,6 +112,7 @@
         },
 
         methods: {
+            //Category Add
             async addCategory() {
                 const res = await this.callApi('post', '/api/cat', this.data)
 
@@ -125,6 +126,7 @@
                 }
             },
 
+            //Category List
             async getCategory() {
                 const res = await this.callApi('get', '/api/cat')
 
@@ -135,6 +137,7 @@
                 }
             },
 
+            //Category Edit
             async editCategory(){
                 const res = await this.callApi('patch', '/api/cat/edit/', this.editData)
 
@@ -157,6 +160,7 @@
                 this.editModal = true
             },
 
+            //Category Delete
             async deleteCategory($cat) {
                 const res = await this.callApi('delete', '/api/cat/' + $cat)
 

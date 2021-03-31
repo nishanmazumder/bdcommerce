@@ -2226,6 +2226,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   methods: {
+    //Category Add
     addCategory: function addCategory() {
       var _this = this;
 
@@ -2261,6 +2262,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
+    //Category List
     getCategory: function getCategory() {
       var _this2 = this;
 
@@ -2290,6 +2292,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     },
+    //Category Edit
     editCategory: function editCategory() {
       var _this3 = this;
 
@@ -2331,6 +2334,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       this.editData = obj;
       this.editModal = true;
     },
+    //Category Delete
     deleteCategory: function deleteCategory($cat) {
       var _this4 = this;
 
