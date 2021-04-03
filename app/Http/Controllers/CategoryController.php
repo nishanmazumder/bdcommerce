@@ -22,12 +22,16 @@ class CategoryController extends Controller
     public function validation($request)
     {
         $rules = [
-            'category_name' => 'required' //min:10
+            'category_name' => 'required', //min:10
+            'cat_img' => 'required',
         ];
 
         $errorText = [
             'required' => "This field is required!",
-            'min' => "Minimum 10 word!"
+            'min' => "Please proveide maximum",
+            'max' => "Please proveide minimun",
+            'image' => "Please upload the correct file!",
+            'mimes' => "Please upload the correct file!"
         ];
 
         $this->validate($request, $rules, $errorText);
@@ -50,19 +54,30 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // return response()->json([
-        //     'msg' => 'Error'
-        // ], 422);
-
-        // $request->validate([
-        //     'category_name' => 'required|min:10'
-        // ]);
-
         $this->validation($request);
 
         return Category::create([
-            'category_name' => $request->category_name
+            'category_name' => $request->category_name,
+            'category_image' => $request->cat_img
         ]);
+    }
+
+    public function upload(Request $request){
+        $image = time().'.'.$request->file->extension();
+        $request->file->move(\public_path('uploads'), $image);
+
+        return $image;
+    }
+
+    public function imgDelete(Request $request){
+        $file = $request->imageName;
+        $file_path = public_path().'/uploads/'.$file;
+
+        if(file_exists($file_path)){
+            @unlink($file_path);
+        }
+
+        return "done";
     }
 
     /**
@@ -99,8 +114,11 @@ class CategoryController extends Controller
       $this->validation($request);
 
        return Category::where('id', $request->id)->update([
-        'category_name' => $request->category_name
+        'category_name' => $request->category_name,
+        'category_image'=> $request->cat_img
        ]);
+
+
     }
 
     /**
@@ -113,9 +131,13 @@ class CategoryController extends Controller
     public function destroy(Category $category, $id)
     {
         $category = Category::find($id);
+        $file = $category->category_image;
+        $file_path = public_path().'/uploads/'.$file;
 
-        if ($category) {
+        if ($category && file_exists($file_path)) {
             $category->delete();
+            @unlink($file_path);
+
             return response()->json(["Category Delated"]);
         }
 

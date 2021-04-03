@@ -13,6 +13,11 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
+        <script>
+            (function(){
+                window.Laravel = {csrfToken : '{{csrf_token()}}'}
+            })();
+         </script>
 
     </head>
     <body>
