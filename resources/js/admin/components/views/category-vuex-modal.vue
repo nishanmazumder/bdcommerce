@@ -9,44 +9,7 @@
         </div>
 
         <!-- Content Row -->
-        <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">All Categories</h6>
-            </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered nm-table" id="" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>No.</th>
-                                <th>Name</th>
-                                <th>Image</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>No.</th>
-                                <th>Name</th>
-                                <th>Image</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot>
-                        <tbody>
-                            <tr v-for="(category , i) in categoriess" :key="i">
-                                <td>{{i + 1}}</td>
-                                <td>{{category.category_name}}</td>
-                                <td><img class="nm_cat_image" :src="`/uploads/${category.category_image}`" alt=""></td>
-                                <td>
-                                    <Button type="info" size="small" @click="showCategoryModal(category)">Edit</Button>
-                                    <Button type="error" size="small" @click="showDeleteAlert(category)">Delete</Button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+        <List/>
 
         <!-- Category Add-->
         <Modal v-model="addModal" title="Add Category" :mask-closable="false" :closable="false"
@@ -107,28 +70,22 @@
             </div>
         </Modal>
 
+        <!-- Item Delete -->
+        <Delete />
 
-        <Modal v-model="deleteAlert" title="Alert!" width="300">
-            <p slot="header" style="color:#f60;text-align:center">
-                <Icon type="ios-information-circle"></Icon>
-                <span>Delete confirmation</span>
-            </p>
-            <div style="text-align:center">
-                <p>This Data will be delete forever!</p>
-                <p>Will you delete it?</p>
-            </div>
-            <div slot="footer">
-                <Button type="error" long @click="deleteCategory" :disabled="isDeleting"
-                    :loading="isDeleting">{{isDeleting? "Deleting.." : "Delete"}}</Button>
-            </div>
-        </Modal>
 
     </div>
 </template>
 
 <script>
+    import {mapGetters} from 'vuex'
+    import List from '../modal/list.vue'
+    import Delete from '../modal/delete.vue'
     export default {
-
+        components: {
+            List,
+            Delete
+        },
         data: function () {
             return {
                 data: {
@@ -137,15 +94,11 @@
                 },
                 addModal: false,
                 isAdding: false,
-                categoriess: [],
                 editModal: false,
                 editData: {
                     category_name: '',
                     cat_img: ''
                 },
-                isDeleting: false,
-                deleteAlert: false,
-                deleteData: {},
                 token: '',
                 uploadDisable: false,
                 ifImageAvailable: false,
@@ -178,14 +131,14 @@
             },
 
             //Category List
-            async getCategory() {
-                const res = await this.callApi('get', '/api/cat')
-
-                if (res.status == 200) {
-                    this.categoriess = res.data
-                } else {
-                    this.error('No data founds!')
+            getCategory() {
+                const setList = {
+                    category_name: '',
+                    cat_img: '',
+                    dataUrl : '/api/cat'
                 }
+
+                this.$store.commit('setListItem', setList)
             },
 
             //Category Edit
@@ -226,23 +179,14 @@
             },
 
             //Category Delete
-            async deleteCategory() {
-                //if (!confirm('Are your sure?')) return
-                const res = await this.callApi('delete', '/api/cat/' + this.deleteData.id)
-
-                if (res.status === 200) {
-                    this.warning(res.data)
-                    this.getCategory()
-                } else {
-                    this.error('Something went wrong!')
+            showDeleteAlert(category) {
+                const deleteObj = {
+                    data: category.id,
+                    dataUrl: '/api/cat/',
+                    deleteAlert: true,
                 }
 
-                this.deleteAlert = false
-            },
-
-            showDeleteAlert(category) {
-                this.deleteAlert = true
-                this.deleteData = category
+                this.$store.commit('setDeleteModalObj', deleteObj)
             },
 
             // Image upload
@@ -299,9 +243,22 @@
             }
         },
 
+        computed: {
+            ...mapGetters(['deleteData'])
+        },
+
         mounted: function () {
             this.token = window.Laravel.csrfToken
             this.getCategory()
+        },
+
+        watch: {
+            // deleteData(obj){
+            //     //console.log(obj)
+            //     if(obj.isDelated){
+            //         this.getCategory()
+            //     }
+            // }
         }
     }
 

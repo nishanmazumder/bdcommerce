@@ -5,7 +5,9 @@ require('./bootstrap')
 import Vue from 'vue'
 
 // Import Vuex
-import Vuex from 'vuex'
+//import Vuex from 'vuex'
+
+import store from './store'
 
 // Import Vue Router
 import router from './routes'
@@ -22,44 +24,10 @@ import 'view-design/dist/styles/iview.css';
 
 //Uses
 //window.Vue = require('vue')
-Vue.use(Vuex)
 Vue.mixin(Common)
 Vue.use(ViewUI);
 
 //Vue.component('mainapp', require('./components/mainapp.vue').default)
-
-const store = new Vuex.Store({
-    state: {
-        test: 'this is test',
-        user: {
-            name: 'Nishan',
-            mail: 'nis@nis.com'
-        },
-        change: 'Change Me'
-    },
-    getters: {
-        user(state) {
-            return state.user
-        },
-
-        change(state) {
-            return state.change
-        }
-
-    },
-    actions: {
-        changeData(context, playload) {
-            context.commit('dataMuted', playload)
-        }
-    },
-    mutations: {
-        dataMuted(state, playload){
-            return state.change = playload
-        }
-    },
-    modules: {}
-
-})
 
 const app = new Vue({
     router,

@@ -8,7 +8,7 @@ Vue.use(VueRouter);
 import dashboard from './components/views/dashboard';
 import hooks from './components/basic/hooks';
 import methods from './components/basic/methods';
-import vuex from './components/basic/vuex';
+import vuex from './components/basic/vuex/vuex';
 
 //pages
 import category from './components/views/category';
